@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and preferences in Phantom Share",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "UserFile": {
+      "title": "UserFile",
+      "description": "Encrypted file stored in user's secure ephemeral vault",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "size": { "type": "number" },
+        "type": { "type": "string" },
+        "originalName": { "type": "string" },
+        "encryptedAt": { "type": "string" },
+        "expiresAt": { "type": "string" },
+        "retentionHours": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "userId", "name", "size"]
+    },
+    "ConversionRecord": {
+      "title": "ConversionRecord",
+      "description": "Record of a PDF processing or conversion event",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "toolId": { "type": "string" },
+        "toolName": { "type": "string" },
+        "fileName": { "type": "string" },
+        "outputFileName": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "originalSize": { "type": "number" },
+        "convertedSize": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "userId", "toolId", "fileName"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Stores user profiles restricted to authenticated user"
+    },
+    "/users/{userId}/files/{fileId}": {
+      "schema": "UserFile",
+      "description": "Secure vault documents belonging to the authenticated user"
+    },
+    "/users/{userId}/conversions/{conversionId}": {
+      "schema": "ConversionRecord",
+      "description": "Document conversion records for the authenticated user"
+    }
+  }
+}

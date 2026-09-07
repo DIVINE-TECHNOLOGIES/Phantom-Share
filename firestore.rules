@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Core Identity Helpers
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // User Profile Document
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false;
+      allow create, update: if isOwner(userId) && isValidId(userId);
+      allow delete: if isOwner(userId);
+
+      // User Private Vault Files
+      match /files/{fileId} {
+        allow read, write: if isOwner(userId) && isValidId(fileId);
+      }
+
+      // User Conversion History
+      match /conversions/{conversionId} {
+        allow read, write: if isOwner(userId) && isValidId(conversionId);
+      }
+    }
+
+    // Default Deny for all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

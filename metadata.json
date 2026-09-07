@@ -1,0 +1,6 @@
+{
+  "name": "Phantom Share",
+  "description": "Every tool you need to work with PDFs and documents in one place. 100% free, private zero-retention file conversion, compression, and encryption.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
