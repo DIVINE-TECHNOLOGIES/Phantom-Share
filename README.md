@@ -1,20 +1,55 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Phantom Share
 
-# Run and deploy your AI Studio app
+**Phantom Share** is a secure file management and sharing platform designed to make uploading, converting, storing, and sharing files simple and protected.
 
-This contains everything you need to run your app locally.
+## ✨ Features
 
-View your app in AI Studio: https://ai.studio/apps/74ea3227-9479-4588-acf8-c25818f06436
+* 🔐 Secure user authentication
+* 📁 Upload and manage files
+* 🔗 Generate secure file-sharing links
+* ⏳ Expiring shared links
+* 🔒 Password-protected file sharing
+* 📦 ZIP file creation and extraction
+* 🔄 File conversion
+* 🛡️ Encrypted file storage
+* 📊 Activity and file management
+* 👨‍💼 Admin dashboard
 
-## Run Locally
+## 🛠️ Tech Stack
 
-**Prerequisites:**  Node.js
+* **Frontend:** React, TypeScript, Tailwind CSS
+* **Build Tool:** Vite
+* **Backend & Database:** Firebase
+* **Authentication:** Firebase Authentication
+* **Storage:** Firebase Storage
+* **Database:** Firestore
 
+## 🚀 Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/DIVINE-TECHNOLOGIES/Phantom-Share.git
+cd Phantom-Share
+npm install
+```
+
+Configure your Firebase environment and start the development server:
+
+```bash
+npm run dev
+```
+
+## 🔐 Security
+
+Phantom Share is built with security in mind, using authenticated access, controlled file sharing, protected links, and secure cloud storage.
+
+## 📌 Project Status
+
+🚧 **Active Development**
+
+More security, file-processing, and collaboration features are planned for future releases.
+
+---
+
+**Phantom Share** — *Secure. Private. Simple.*
