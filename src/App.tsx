@@ -137,8 +137,8 @@ function AppContent() {
       id: `vf-${Date.now()}`,
       name: conversion.outputFile,
       extension: ext,
-      size: '1.2 MB',
-      sizeBytes: 1258291,
+      size: conversion.fileSize || '1.2 MB',
+      sizeBytes: conversion.sizeBytes || 1258291,
       sha256: Array.from(crypto.getRandomValues(new Uint8Array(32)))
         .map((b) => b.toString(16).padStart(2, '0'))
         .join(''),

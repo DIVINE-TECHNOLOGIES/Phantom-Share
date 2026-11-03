@@ -87,6 +87,8 @@ export interface ConversionRecord {
   badgeColor?: 'primary' | 'secondary' | 'outline';
   isVaultSaved: boolean;
   timestamp: number;
+  fileSize?: string;
+  sizeBytes?: number;
 }
 
 export interface SharedLink {
